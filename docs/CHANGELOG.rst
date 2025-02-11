@@ -23,6 +23,8 @@ Changed
 - **BACKWARD INCOMPATIBLE:** Require Resolwe 43.x
 - Use ``pyproject.toml`` instead of ``setup.py``
 - Calculate up to 5 principal components in ``pca`` process
+- Add an output field in ``alignment-star``
+  indicating whether input reads were downsampled with Seqtk
 
 Fixed
 -----

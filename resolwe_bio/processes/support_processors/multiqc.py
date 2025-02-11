@@ -437,7 +437,7 @@ class MultiQC(Process):
     }
     category = "QC"
     data_name = "MultiQC report"
-    version = "1.25.0"
+    version = "1.26.0"
 
     class Input:
         """Input fields to process MultiQC."""
@@ -579,7 +579,10 @@ class MultiQC(Process):
                     )
                 else:
                     count_report = "ReadsPerGene.out.tab.gz"
-                    report = f"{bam_name}.Log.final.out"
+                    if d.output.seqtk_downsampled == True:
+                        report = f"{bam_name}.downsampled.Log.final.out"
+                    else:
+                        report = f"{bam_name}.Log.final.out"
                     alignment_count = 1
                     alignment_dir = os.path.join(sample_dir, f"STAR_{alignment_count}")
                     if not os.path.isdir(alignment_dir):
